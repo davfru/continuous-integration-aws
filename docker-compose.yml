@@ -10,5 +10,14 @@ services:
             - /app/node_modules # it means 'don't reference node_modules from local project' (node_modules not exists here)
             - .:/app
         stdin_open: true
+    tests:
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        volumes: 
+            - /app/node_modules
+            - .:/app
+        command: ["npm", "run", "test"] #override defaul command of Dockerfile.dev
+        stdin_open: true
 
 # docker run -it -p 3000:3000 -v /app/node_modules -v $(pwd):/app 6eb994a528d8
