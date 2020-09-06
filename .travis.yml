@@ -1,6 +1,10 @@
+language: generic 
 sudo: required
 services:
     - docker
 
 before_install:
     - docker build -t davfru/continuous-integration-aws -f Dockerfile.dev .
+
+script:
+    - docker run -e CI=true davfru/continuous-integration-aws npm run test 

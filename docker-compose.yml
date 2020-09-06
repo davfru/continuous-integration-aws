@@ -21,3 +21,6 @@ services:
         stdin_open: true
 
 # docker run -it -p 3000:3000 -v /app/node_modules -v $(pwd):/app 6eb994a528d8
+# docker-compose up #build and start docker compose file
+# docker-compose build #build docker compose file
+# docker run continuous-integration-aws_tests npm run test
